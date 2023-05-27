@@ -8,22 +8,34 @@ const ReadQr = () => {
         const videoElem = document.querySelector('video');
         qrScanner = new QrScanner(
             videoElem,
-            result => console.log('decoded qr code:', result),
+            result => {
+                setData(result.data);
+                alert(result.data);
+            },
+            {
+                onDecodeError: (e)=>{
+                    //alert(e);
+                },
+                maxScansPerSecond: 5,
+                highlightScanRegion: true,
+                returnDetailedScanResult: true
+            }
 
         );
 
     },[])
 
-    function read(){
-      qrScanner.start();
+    async function read(){
+      await qrScanner.start();
     }
 
 
 
     return (
         <div>
-            <video style={{width: '100%', height: '100%'}}></video>
+            <video style={{width: '100%', height: '100%', maxHeight: '400px', maxWidth:'400px'}}></video>
             <button onClick={read}>Scan</button>
+            <div>{data}</div>
         </div>
     );
 };
