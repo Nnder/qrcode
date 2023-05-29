@@ -1,24 +1,24 @@
 import './App.css'
+import Navbar from "./components/Navbar/Navbar.tsx";
+import {Route, Routes} from "react-router-dom";
 
-import 'qrcode';
-import ReadQr from "./components/ReadQr.tsx";
-import CreaterQr from "./components/CreaterQr.tsx";
+import Home from "./Pages/Home.tsx";
+import Scan from "./Pages/Scan.tsx";
+import Registration from "./Pages/Registration.tsx";
+import Client from "./Pages/Client.tsx";
+import ErrorPage from "./Pages/ErrorPage.tsx";
 
 const App = () =>{
-
-
-
     return (
         <>
-            <div>
-                <h1>Reader</h1>
-                <ReadQr/>
-            </div>
-
-            <div>
-                <h1>Generate</h1>
-                <CreaterQr/>
-            </div>
+            <Navbar/>
+            <Routes>
+                <Route path='/' element={<Home/>}/>
+                <Route path='/scan' element={<Scan/>}/>
+                <Route path='/create' element={<Registration/>}/>
+                <Route path='/client/:id' element={<Client/>}/>
+                <Route path='*' element={<ErrorPage/>}/>
+            </Routes>
         </>
     );
 }
