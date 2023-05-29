@@ -6,6 +6,7 @@ const Client = () => {
     return (
         <div>
             Client {id}
+
         </div>
     );
 };

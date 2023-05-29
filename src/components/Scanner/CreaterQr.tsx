@@ -1,6 +1,9 @@
 import {useEffect, useState} from "react";
 import QRCode from 'qrcode'
+import ClientData from "../Form/ClientData.tsx";
 
+
+// useContext
 const CreaterQr = () => {
     const [data, setData] = useState("");
     const [canvas, setCanvas] = useState<HTMLCanvasElement | null>(null);
@@ -17,14 +20,16 @@ const CreaterQr = () => {
     },[])
 
     return (
-        <div>
-            <div>
-                <input type="text" value={data} onChange={(el)=>setData(el.target.value)}/>
+        <div className="w-full">
+            <div className="flex items-center justify-center flex-col">
+                <ClientData/>
+                <input className="my-4" type="text" value={data} onChange={(el)=>setData(el.target.value)}/>
                 <button onClick={generate}>Generate</button>
             </div>
-            <canvas>
+            <div className="flex justify-center m-5">
+                <canvas></canvas>
+            </div>
 
-            </canvas>
         </div>
     );
 };

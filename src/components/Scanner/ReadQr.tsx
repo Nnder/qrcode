@@ -42,9 +42,9 @@ const ReadQr = () => {
 
 
     return (
-        <div className="flex flex-col content-center items-center">
-            <video style={{width: '100%', height: '100%', maxHeight: '400px', maxWidth:'400px'}}></video>
-            <button onClick={read} className="w-32">Scan</button>
+        <div className="flex flex-col content-center items-center mb-10">
+            <video className="w-4/5 h-4/5 bg-black"></video>
+            <button onClick={read} className="w-32 mt-2">Scan</button>
             <div>{data}</div>
             {error && <Error message={error}/>}
             {/*<ErrorPage/>*/}

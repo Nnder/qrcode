@@ -7,6 +7,7 @@ import Scan from "./Pages/Scan.tsx";
 import Registration from "./Pages/Registration.tsx";
 import Client from "./Pages/Client.tsx";
 import ErrorPage from "./Pages/ErrorPage.tsx";
+import FindClient from "./Pages/FindClient.tsx";
 
 const App = () =>{
     return (
@@ -17,6 +18,7 @@ const App = () =>{
                 <Route path='/scan' element={<Scan/>}/>
                 <Route path='/create' element={<Registration/>}/>
                 <Route path='/client/:id' element={<Client/>}/>
+                <Route path='/fiend' element={<FindClient/>}/>
                 <Route path='*' element={<ErrorPage/>}/>
             </Routes>
         </>
